@@ -1,4 +1,4 @@
-# Events
+# Canvas and AJAX
 
 * Download a zip of this `ws_canvas` repository or (preferably) clone it thus:
 ```bash
