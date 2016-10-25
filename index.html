@@ -18,6 +18,12 @@
       border-color: #990099;
   }
 
+  canvas {
+    border: 1px dashed green;
+    display: block;
+    margin: 1em;
+  }
+
 </style>
 
 <body>
@@ -25,9 +31,19 @@
     </div>
 
     <section>
-      <h1>Fill this list with data from a server.</h1>
-      <ul id=list1>
-      </ul>
+      <h1>Fill lists with data from a server.</h1>
+      <ol id=list1></ol>
+      <ul id=list2></ul>
+    </section>
+
+    <section>
+      <h1>The server says:</h1>
+      <pre id=message></pre>
+    </section>
+
+    <section>
+      <h1>I'm Spartacus!</h1>
+      <canvas id="canvas" width="200" height="200"></canvas>
     </section>
 
 
