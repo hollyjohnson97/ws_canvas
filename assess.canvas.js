@@ -59,6 +59,7 @@ QUnit.test(
       "Leia"
     );
 
+    window.list1.parentElement.classList.add("done");
   }
 );
 
@@ -98,6 +99,8 @@ QUnit.test(
       oldMessage = window.message.textContent;
       done();
     }
+
+    window.message.parentElement.classList.add("done");
   }
 );
 
@@ -105,7 +108,7 @@ QUnit.test(
 
 QUnit.test(
 
-  "Create a function `drawSpartacus` that takes one parameter, a canvas element. The function will draw the stick figure Spartacus on the provided canvas. Make sure he wields a sword in his hand. For convenience, index.js contains a function `drawStickFigure` that does most of the job, given a canvas element.",
+  "Create a function `drawSpartacus` that takes one parameter, a canvas element. The function will draw the stick figure Spartacus on the provided canvas. Make sure he wields a sword in his hand. For convenience, index.js contains a function `drawStickFigure` that does most of the job, given a canvas element. Challenge: make him walk around.",
 
   function (assert) {
     assert.ok(
@@ -120,6 +123,7 @@ QUnit.test(
       "You need to check with your eyes whether Spartacus is drawn and has a sword."
     );
 
+    window.canvas.parentElement.classList.add("done");
   }
 );
 
@@ -127,75 +131,23 @@ QUnit.test(
 
 QUnit.test(
 
-  "get a simple array from server and draw circles to match",
+  "Create a function `drawTriangle` that takes seven parameters: a canvas element, and x1, y1, x2, y2, x3, y3. The function draws a red triangle, filled solid with green, between the three points given by the parameters.",
 
   function (assert) {
+    assert.ok(
+      typeof drawTriangle === "function",
+      "Create a `drawTriangle` function."
+    );
 
-  }
-);
+    drawTriangle(window.canvas2, 10, 10, 10, 100, 100, 10);
+    drawTriangle(window.canvas2, 30, 30, 30, 100, 100, 30);
+    drawTriangle(window.canvas2, 190, 190, 190, 100, 100, 190);
 
+    assert.ok(
+      true,
+      "You need to check with your eyes that there are three triangles - two should overlap, the smaller one above the larger one."
+    );
 
-
-QUnit.test(
-
-  "get data from a server and draw a chart with the data",
-
-  function (assert) {
-
-  }
-);
-
-
-
-QUnit.test(
-
-  "parallel lines",
-
-  function (assert) {
-
-  }
-);
-
-
-
-QUnit.test(
-
-  "grid",
-
-  function (assert) {
-
-  }
-);
-
-
-
-QUnit.test(
-
-  "czech flag (challenge: union jack)",
-
-  function (assert) {
-
-  }
-);
-
-
-
-QUnit.test(
-
-  "animate a simple bouncing box",
-
-  function (assert) {
-
-  }
-);
-
-
-
-QUnit.test(
-
-  "seascape: sky, sea, sun, seagull, ship (challenge: animated)",
-
-  function (assert) {
-
+    window.canvas2.parentElement.parentElement.classList.add("done");
   }
 );

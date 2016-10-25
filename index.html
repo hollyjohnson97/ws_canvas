@@ -20,8 +20,20 @@
 
   canvas {
     border: 1px dashed green;
-    display: block;
+    display: inline-block;
     margin: 1em;
+    vertical-align: middle;
+  }
+
+  img {
+    border: 1px dashed green;
+    display: inline-block;
+    margin: 1em;
+    vertical-align: middle;
+  }
+
+  .nobreak {
+    white-space: nowrap;
   }
 
 </style>
@@ -44,6 +56,14 @@
     <section>
       <h1>I'm Spartacus!</h1>
       <canvas id="canvas" width="200" height="200"></canvas>
+    </section>
+
+    <section>
+      <h1>I'm a triangle!</h1>
+      <p class="nobreak">
+        <canvas id="canvas2" width="200" height="200"></canvas> It should look like this:
+        <img src="triangles.png" alt="this is what it should look like">
+      </p>
     </section>
 
 
