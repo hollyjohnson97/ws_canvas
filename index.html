@@ -32,15 +32,45 @@
     vertical-align: middle;
   }
 
-  .nobreak {
-    white-space: nowrap;
-  }
-
 </style>
 
 <body>
     <div id="qunit">
     </div>
+
+
+    <section>
+      <h1>Parallel lines</h1>
+      <canvas id="canvas4" width="510" height="216"></canvas>
+      <p>It should look like this:</p>
+      <img src="i/lines.png" alt="Parallel lines with one line twice as long as the other.">
+    </section>
+
+    <section>
+      <h1>I'm a triangle!</h1>
+      <p class="nobreak">
+        <canvas id="canvas2" width="200" height="200"></canvas>
+        <p>It should look like this:</p>
+        <img src="i/triangles.png" alt="An image with 3 isosceles triangles. All triangles are green with a red border.  Two triangles point to the top left corner, the second of which is slightly smaller, offset towards the centre of the image and partially overlapping the first.  The last triangle points to the bottom right corner.">
+      </p>
+    </section>
+
+    <section>
+      <h1>Draw a grid</h1>
+      <canvas id="canvas5" width="500" height="200"></canvas>
+    </section>
+
+    <section>
+      <h1>Draw the flag of the Czech Republic</h1>
+      <canvas id="canvas6" width="400" height="270"></canvas>
+      <p>It should look like this:</p>
+      <img src="i/czech.png" alt="This the the Czech Republic flag.  Comprising two horizontal rectangles in red and white filling the flag.  At the left edge of the flag is a blue triangle which is not quite equilateral.">
+    </section>
+
+    <section>
+      <h1>I'm Spartacus!</h1>
+      <canvas id="canvas" width="200" height="200"></canvas>
+    </section>
 
     <section>
       <h1>The server said:</h1>
@@ -59,57 +89,15 @@
     </section>
 
     <section>
-      <h1>I'm Spartacus!</h1>
-      <canvas id="canvas" width="200" height="200"></canvas>
-    </section>
-
-
-    <section>
       <h1>XHR Error</h1>
       <pre id=message3></pre>
       <pre id=message4></pre>
     </section>
 
     <section>
-      <h1>I'm a triangle!</h1>
-      <p class="nobreak">
-        <canvas id="canvas2" width="200" height="200"></canvas> It should look like this:
-        <img src="triangles.png" alt="this is what it should look like">
-      </p>
-    </section>
-
-    <section>
       <h1>Draw Box from Server Coordinates </h1>
-      <p class="nobreak">
-        <canvas id="canvas3" width="200" height="200"></canvas>
-
-      </p>
+      <canvas id="canvas3" width="200" height="200"></canvas>
     </section>
-
-    <section>
-      <h1>Parallel lines</h1>
-      <p class="nobreak">
-        <canvas id="canvas4" width="510" height="216"></canvas>
-        <img src="lines.png" alt="this is what it should look like">
-      </p>
-    </section>
-
-    <section>
-      <h1>Draw a grid</h1>
-      <p class="nobreak">
-        <canvas id="canvas5" width="500" height="200"></canvas>
-
-      </p>
-    </section>
-
-    <section>
-      <h1>Draw the czech flag</h1>
-      <p class="nobreak">
-        <canvas id="canvas6" width="400" height="270"></canvas>
-        <img src="czech.png" alt="this is what it should look like">
-      </p>
-    </section>
-
 
     <script>
       window.topic = "ws_canvas";
