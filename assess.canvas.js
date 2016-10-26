@@ -166,6 +166,51 @@ QUnit.test(
   }
 );
 
+QUnit.test(
+
+"Create a function 'handleError' that accepts an element and a url as a parameter, and shows the text from the server there. If there is an error, the function should set the textcontent of the element to 'OH DEAR'.",
+
+  function (assert) {
+
+
+    assert.ok(
+      typeof handleError === "function",
+      "Create a `handleError` function."
+    );
+
+
+  assert.equal(
+    window.message3.textContent,
+    '',
+    "Before running the function, the message is empty."
+  );
+
+
+
+  var done = assert.async(1);
+  handleError(window.message3, 'blurb.txt');
+
+  setTimeout(checkEMessage,1500);
+
+  function checkEMessage() {
+      assert.strictEqual(
+        window.message3.textContent,
+        "OH DEAR",
+        "The message should say 'OH DEAR' if there is an error."
+      );
+
+      done();
+
+
+  }
+
+
+  window.message3.parentElement.classList.add("done");
+
+}
+
+
+);
 
 
 QUnit.test(
@@ -188,5 +233,27 @@ QUnit.test(
     );
 
     window.canvas2.parentElement.parentElement.classList.add("done");
+  }
+);
+
+
+QUnit.test(
+
+  "Create a function `drawBox', which accepts two parameters: a canvas element, and a URL which refers to a simple object with coordinates from a server, and then draws a box there. Update the coordinates every 1 second.",
+
+  function (assert) {
+    assert.ok(
+      typeof drawBox === "function",
+      "Create a `drawBox` function."
+    );
+
+    drawBox(window.canvas, "http://jacek.soc.port.ac.uk/tmp/ws/dyn2" );
+
+    assert.ok(
+      true,
+      "You need to check with your eyes whether the box is at the correct coordinates."
+    );
+
+    window.canvas.parentElement.classList.add("done");
   }
 );
