@@ -17,6 +17,45 @@ QUnit.module("Canvas");
 
 QUnit.test(
 
+  "Create a function `showMessage` that takes two parameters: an element and a string that is a URL. The function will retrieve the URL with a synchronous request and put the response text into the text content of the provided element.",
+
+  function (assert) {
+
+    assert.ok(
+      typeof showMessage === "function",
+      "Create a `showMessage` function."
+    );
+
+    assert.equal(
+      window.message.textContent,
+      '',
+      "Before running the function, the message is empty."
+    );
+
+    showMessage(window.message, 'http://jacek.soc.port.ac.uk/tmp/ws/hello');
+
+    assert.equal(
+      window.message.textContent,
+      "Live long and prosper!\n",
+      "The message from the server should be there."
+    );
+
+    showMessage(window.message, 'http://jacek.soc.port.ac.uk/tmp/ws/bye');
+
+    assert.equal(
+      window.message.textContent,
+      "See you soon!\n",
+      "When called the second time with a different URL, a new message from the server should be there."
+    );
+
+    window.message.parentElement.classList.add("done");
+  }
+);
+
+
+
+QUnit.test(
+
   "Create a function `showList` that takes two parameters: an element and a string that is a URL. The function will retrieve the URL with a synchronous request, parse the retrieved data as JSON; the data is guaranteed to be an array of string. The function will then, like the `filler` function in `ws_dom`, put the contents of the array as list items into the provided element.",
 
   function (assert) {
@@ -77,12 +116,12 @@ QUnit.test(
     );
 
     assert.equal(
-      window.message.textContent,
+      window.message2.textContent,
       '',
       "Before running the function, the message is empty."
     );
 
-    startShowingMessage(window.message, 'http://jacek.soc.port.ac.uk/tmp/ws/dyn1');
+    startShowingMessage(window.message2, 'http://jacek.soc.port.ac.uk/tmp/ws/dyn1');
 
     var done = assert.async(2);
 
@@ -92,15 +131,15 @@ QUnit.test(
     var oldMessage = '';
     function checkMessage() {
       assert.notEqual(
-        window.message.textContent,
+        window.message2.textContent,
         oldMessage,
         "The message should be changing."
       );
-      oldMessage = window.message.textContent;
+      oldMessage = window.message2.textContent;
       done();
     }
 
-    window.message.parentElement.classList.add("done");
+    window.message2.parentElement.classList.add("done");
   }
 );
 
