@@ -13,7 +13,7 @@
 
 function id() {
     return "UP000000";
-
+}
 
 
 // draws a stick figure on the canvas
