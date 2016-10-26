@@ -30,7 +30,7 @@ QUnit.test(
       "You need to check with your eyes that the lines match the picture opposite."
     );
 
-    window.canvas4.parentElement.parentElement.classList.add("done");
+    window.canvas4.parentElement.classList.add("done");
   }
 );
 
@@ -53,7 +53,7 @@ QUnit.test(
 
     assert.ok(
       true,
-      "You need to check with your eyes that there are three triangles - two should overlap, the smaller one above the larger one."
+      "You need to check with your eyes that there are three triangles like in the attached picture."
     );
 
     window.canvas2.parentElement.parentElement.classList.add("done");
@@ -75,7 +75,7 @@ QUnit.test(
 
     assert.ok(
       true,
-      "You need to check with your eyes whether Spartacus is drawn and has a sword."
+      "You need to check with your eyes whether you see Spartacus with a sword."
     );
 
     window.canvas.parentElement.classList.add("done");
@@ -102,7 +102,7 @@ QUnit.test(
       "You need to check with your eyes that you have in fact made a grid."
     );
 
-    window.canvas5.parentElement.parentElement.classList.add("done");
+    window.canvas5.parentElement.classList.add("done");
   }
 );
 
@@ -123,7 +123,7 @@ QUnit.test(
       "You need to check with your eyes that you have in fact made the Czech flag."
     );
 
-    window.canvas6.parentElement.parentElement.classList.add("done");
+    window.canvas6.parentElement.classList.add("done");
   }
 );
 
@@ -260,7 +260,7 @@ QUnit.test(
 
 QUnit.test(
 
-"Create a function 'handleError' that accepts an element and a url as a parameter, and shows the text from the server there. If there is an error, the function should set the textcontent of the element to 'OH DEAR'.",
+  "Create a function 'handleError' that accepts an element and a url as a parameter, and with a synchronous request shows the text from the server there. If there is an error, the function should set the textcontent of the element to 'OH DEAR'.",
 
   function (assert) {
 
@@ -270,45 +270,37 @@ QUnit.test(
       "Create a `handleError` function."
     );
 
+    assert.equal(
+      window.message3.textContent,
+      '',
+      "Before running the function, the message is empty."
+    );
 
-  assert.equal(
-    window.message3.textContent,
-    '',
-    "Before running the function, the message is empty."
-  );
+    handleError(window.message3, 'http://jacek.soc.port.ac.uk/tmp/ws/hello');
 
+    assert.strictEqual(
+      window.message3.textContent,
+      "Live long and prosper!\n",
+      "The message from the server should be there."
+    );
 
+    handleError(window.message3, 'http://jacek.soc.port.ac.uk/tmp/ws/404');
 
-  var done = assert.async(1);
-  handleError(window.message3, 'http://jacek.soc.port.ac.uk/tmp/ws/404');
+    assert.strictEqual(
+      window.message3.textContent,
+      "OH DEAR",
+      "The message should say 'OH DEAR' if there is an error."
+    );
 
-  setTimeout(checkEMessage,1500);
-
-  function checkEMessage() {
-      assert.strictEqual(
-        window.message3.textContent,
-        "OH DEAR",
-        "The message should say 'OH DEAR' if there is an error."
-      );
-
-      done();
-
-
+    window.message3.parentElement.classList.add("done");
   }
-
-
-  window.message3.parentElement.classList.add("done");
-
-}
-
-
 );
 
 
 
 QUnit.test(
 
-  "Create a function `drawBox', which accepts two parameters: a canvas element, and a URL which refers to a simple object with coordinates from a server, and then draws a box there. Update the coordinates every 1 second.",
+  "Create a function `drawBox', which accepts two parameters: a canvas element, and a URL which refers to a simple object with coordinates that you should retrieve with an asynchronous request from a server, and then draws a box there. Update the coordinates and redraw the box every 1 second.",
 
   function (assert) {
     assert.ok(
@@ -316,13 +308,29 @@ QUnit.test(
       "Create a `drawBox` function."
     );
 
-    drawBox(window.canvas, "http://jacek.soc.port.ac.uk/tmp/ws/dyn2" );
+    var oldPicture = window.canvas.toDataURL();
+
+    drawBox(window.canvas3, "http://jacek.soc.port.ac.uk/tmp/ws/dyn2" );
 
     assert.ok(
       true,
-      "You need to check with your eyes whether the box is at the correct coordinates."
+      "You need to check with your eyes that there is a box changing coordinates every second."
     );
 
-    window.canvas.parentElement.classList.add("done");
+    var done = assert.async(2);
+
+    setTimeout(checkPicture, 1500);
+    setTimeout(checkPicture, 3000);
+
+    function checkPicture() {
+      var newPicture = window.canvas3.toDataURL();
+      assert.ok(
+        newPicture != oldPicture,
+        "The picture should be changing."
+      );
+      oldPicture = newPicture;
+      done();
+    }
+    window.canvas3.parentElement.classList.add("done");
   }
 );
