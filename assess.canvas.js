@@ -95,7 +95,7 @@ QUnit.test(
       "Create a `drawGrid` function."
     );
 
-    drawLines(window.canvas5);
+    drawGrid(window.canvas5);
 
     assert.ok(
       true,
@@ -116,7 +116,7 @@ QUnit.test(
       "Create a `drawCzechFlag` function."
     );
 
-    drawLines(window.canvas6);
+    drawCzechFlag(window.canvas6);
 
     assert.ok(
       true,
