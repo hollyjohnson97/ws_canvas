@@ -15,7 +15,7 @@ QUnit.module("Canvas");
 
 QUnit.test(
 
-  "Create a `drawLines` function to draw two parallel lines. The first line should begin at a point 100 pixels to the right of, the origin (i.e. 0,0) and 100 pixels below it. It should be 400 pixels long. The second line should run parallel to the first line, exactly 100 pixels below it. It should start at a point 100 pixels from the edge of the canvas and be 200 pixels long.",
+  "Create a `drawLines` function which accepts a single parameter, a canvas element, to draw two parallel lines. The first line should begin at a point 100 pixels to the right of, the origin (i.e. 0,0) and 100 pixels below it. It should be 400 pixels long. The second line should run parallel to the first line, exactly 100 pixels below it. It should start at a point 100 pixels from the edge of the canvas and be 200 pixels long.",
 
   function (assert) {
     assert.ok(
