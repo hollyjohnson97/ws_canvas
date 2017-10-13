@@ -63,30 +63,6 @@ QUnit.test(
 
 QUnit.test(
 
-  "Create a function `drawSpartacus` that takes one parameter, a canvas element. The function will draw the stick figure Spartacus on the provided canvas. Make sure he wields a sword in his hand. For convenience, index.js contains a function `drawStickFigure` that does most of the job, given a canvas element. Challenge: make him walk around.",
-
-  function (assert) {
-    assert.ok(
-      typeof drawSpartacus === "function",
-      "Create a `drawSpartacus` function."
-    );
-
-    drawSpartacus(window.canvas);
-
-    assert.ok(
-      true,
-      "You need to check with your eyes whether you see Spartacus with a sword."
-    );
-
-    window.canvas.parentElement.classList.add("done");
-  }
-);
-
-
-
-
-QUnit.test(
-
   "Write a drawGrid function that fills the canvas with a grid to make squares 50px big.",
 
   function (assert) {
@@ -124,5 +100,28 @@ QUnit.test(
     );
 
     window.canvas6.parentElement.classList.add("done");
+  }
+);
+
+
+
+QUnit.test(
+
+  "Create a function `drawSpartacus` that takes one parameter, a canvas element. The function will draw the stick figure Spartacus on the provided canvas. Make sure he wields a sword in his hand. For convenience, index.js contains a function `drawStickFigure` that does most of the job, given a canvas element. Challenge: make him walk around.",
+
+  function (assert) {
+    assert.ok(
+      typeof drawSpartacus === "function",
+      "Create a `drawSpartacus` function."
+    );
+
+    drawSpartacus(window.canvas);
+
+    assert.ok(
+      true,
+      "You need to check with your eyes whether you see Spartacus with a sword."
+    );
+
+    window.canvas.parentElement.classList.add("done");
   }
 );
