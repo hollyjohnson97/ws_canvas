@@ -1,4 +1,4 @@
-var
+let
   svr = "http://rjb.soc.port.ac.uk",
   now = Date.now(),
   runid = "run " + id() + " " + now,
@@ -29,7 +29,7 @@ var
 QUnit.log(
   function( details ) {
     // ensure whatever this module is is recorded in the list of modules.
-    var key = details.module.toLowerCase().replace(/[^a-zA-Z\d]/gi, "_");
+    let key = details.module.toLowerCase().replace(/[^a-zA-Z\d]/gi, "_");
     modules[key] = details.module;
 
     // record test instance details
@@ -48,9 +48,9 @@ QUnit.log(
  */
 QUnit.testDone(function( details ) {
     // ensure whatever this module is is recorded in the list of modules.
-    var moduleid = details.module.toLowerCase().replace(/[^a-zA-Z\d]/gi, "_");
+    let moduleid = details.module.toLowerCase().replace(/[^a-zA-Z\d]/gi, "_");
 
-    var testName = moduleid + '/' + details.name;
+    let testName = moduleid + '/' + details.name;
     if (testName.length > 70) testName = testName.substring(0, 69) + '…';
 
     // if a test fails any assertion, it will be recorded as failed
@@ -73,7 +73,7 @@ QUnit.done(function( details ) {
 });
 
 function sendData(what, url) {
-  var xhr = new XMLHttpRequest();
+  let xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
   xhr.setRequestHeader("Accept", "application/json");
   xhr.setRequestHeader("Content-type", "application/json");
@@ -95,7 +95,9 @@ function addRunRecord() {
 function addStudent() {
     sendData(
       {
-        "id": id()
+        "id": id(),
+        "fn": fn(),
+        "sn": sn()
       },
       svr + "/students/"
     );
@@ -103,8 +105,8 @@ function addStudent() {
 
 
 function addModules() {
-  var url = svr + "/modules/";
-  for (var key in modules) {
+  let url = svr + "/modules/";
+  for (let key in modules) {
     if (modules.hasOwnProperty(key)) {
       sendData(
         {
