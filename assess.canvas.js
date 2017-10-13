@@ -113,3 +113,74 @@ QUnit.test(
     window.canvas.parentElement.classList.add("done");
   }
 );
+
+
+
+QUnit.test(
+
+  "Create a function `drawEyes` that takes one parameter, a canvas element. The function will draw a pair of eyes – a black-outlined white circle with a colourful pupil and black iris, twice. Advanced challenge: make the eyes follow your mouse cursor when it's over the canvas (hint: use the `mousemove` event).",
+
+  function (assert) {
+    assert.ok(
+      typeof drawEyes === "function",
+      "Create a `drawEyes` function."
+    );
+
+    drawEyes(window.canvasEyes);
+
+    assert.ok(
+      true,
+      "You need to check with your eyes whether you see eyes on the canvas."
+    );
+
+    window.canvasEyes.parentElement.classList.add("done");
+  }
+);
+
+
+
+QUnit.test(
+
+  "Create a function `drawSmiley` that takes one parameter, a canvas element. The function will draw a happy yellow smiley face. Use the eyes you have already created. Stretch and scale it to the available canvas size.",
+
+  function (assert) {
+    assert.ok(
+      typeof drawSmiley === "function",
+      "Create a `drawSmiley` function."
+    );
+
+    drawSmiley(window.canvasSmiley1);
+    drawSmiley(window.canvasSmiley2);
+    drawSmiley(window.canvasSmiley3);
+
+    assert.ok(
+      true,
+      "You need to check with your eyes whether you see 3 differently sized smiley faces."
+    );
+
+    window.canvasSmiley1.parentElement.classList.add("done");
+  }
+);
+
+
+
+QUnit.test(
+
+  "Challenge: create a function `drawEmoji` that takes one parameter, a canvas element. The function will draw your favourite emoji using canvas.",
+
+  function (assert) {
+    assert.ok(
+      typeof drawEmoji === "function",
+      "Create a `drawEmoji` function."
+    );
+
+    drawEmoji(window.canvasEmoji);
+
+    assert.ok(
+      true,
+      "You need to check with your eyes whether you see your favourite emoji on the emoji canvas."
+    );
+
+    window.canvasEmoji.parentElement.classList.add("done");
+  }
+);
