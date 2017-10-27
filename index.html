@@ -32,7 +32,15 @@
     vertical-align: middle;
   }
 
-  #canvas6:hover { background-color: #0f0; }
+  /*#canvas6:hover { background-color: #0f0; }*/
+
+  #clouds { display: inline-block; padding: 1em; margin: -1em; }
+
+  #clouds:hover {
+    background-color: #adf;
+    background-image: url('cloudy-skies.jpg');
+    background-size: cover;
+  }
 
 </style>
 
@@ -62,9 +70,11 @@
       <canvas id="canvas5" width="500" height="200"></canvas>
     </section>
 
-    <section>
+    <section id=canvas6section>
       <h1>Draw the flag of the Czech Republic</h1>
-      <canvas id="canvas6" width="400" height="270"></canvas>
+      <div id=clouds>
+        <canvas id="canvas6" width="400" height="270"></canvas>
+      </div>
       <p>It should look like this:</p>
       <img src="i/czech.png" alt="This the the Czech Republic flag.  Comprising two horizontal rectangles in red and white filling the flag.  At the left edge of the flag is a blue triangle which is not quite equilateral.">
     </section>

@@ -87,7 +87,7 @@ QUnit.test(
       "You need to check with your eyes that you have in fact made the Czech flag."
     );
 
-    window.canvas6.parentElement.classList.add("done");
+    window.canvas6section.classList.add("done");
   }
 );
 
