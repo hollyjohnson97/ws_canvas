@@ -16,7 +16,7 @@
 // the stick figure will stand over the point X,Y (default: 100,150)
 // facing is a degree in which the stick figure is facing: 0 is to the right, 90 is towards us
 function drawStickFigure(el, x, y, facing) {
-  var c = el.getContext("2d");
+  const c = el.getContext("2d");
 
   // set our drawing style
   c.lineWidth = 2;
@@ -56,7 +56,7 @@ function drawStickFigure(el, x, y, facing) {
     if (facing > 180) return;  // facing away from us, don't draw a face
 
     // we'll fake the turning of the face by shifting the eyes and the smile by an offset of up to 10 pixels
-    var faceOffset = 0;
+    let faceOffset = 0;
     if (facing <= 180) {
       faceOffset = (facing-90)/9;
     }
@@ -65,9 +65,9 @@ function drawStickFigure(el, x, y, facing) {
     circle(c, x+7-faceOffset, y-5, 1)
 
     // decrease the smile size here
-    var smileSize = 70; // size of smile in degrees of angle; 360 would be a full circle
-    var startAngle = rad(90-smileSize/2-2*faceOffset)
-    var endAngle   = rad(90+smileSize/2-2*faceOffset)
+    const smileSize = 70; // size of smile in degrees of angle; 360 would be a full circle
+    const startAngle = rad(90-smileSize/2-2*faceOffset)
+    const endAngle   = rad(90+smileSize/2-2*faceOffset)
     arc(c, x-faceOffset, y, 12, startAngle, endAngle) // 12 is the radius of the smile circle
   }
 
