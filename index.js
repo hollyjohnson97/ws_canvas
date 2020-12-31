@@ -144,28 +144,31 @@ function drawGrid(canvas) {
 
 
     c.beginPath();
-    c.moveTo(50, 0);
-    c.lineTo(50, 200);
-    c.stroke();
+    for (let i=1; i<10; i++) {
+        const x = 50 * i;
+        c.moveTo(x, 0);
+        c.lineTo(x, 200);
+        c.stroke();
 
-    c.moveTo(100, 0);
-    c.lineTo(100, 200);
-    c.stroke();
+    }
 
-    c.moveTo(150, 0);
-    c.stroke();
-    c.lineTo(150, 200);
+    for (let i=1; i< 4; i++) {
+        const y = 50 * i;
+        c.moveTo(0, y);
+        c.lineTo(500, y);
+        c.stroke();
+    }
 
-    c.moveTo(200, 0);
-    c.lineTo(200, 200);
-    c.stroke();
 
 
     // c.moveTo(0, 50);
+    // c.lineTo(200, 50)
     // c.stroke();
     // c.moveTo(0, 100);
+    //c.lineTo(200, 100);
     // c.stroke();
     // c.moveTo(0, 150);
+    // c.moveTo(200, 150);
     // c.stroke();
 
 }
