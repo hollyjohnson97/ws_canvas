@@ -139,6 +139,7 @@ function drawTriangle(canvas, x1, y1, x2, y2, x3, y3) {
     c.fill();
 }
 
+//draws a grid with each square being 50px/50px
 function drawGrid(canvas) {
     const c = canvas.getContext('2d');
 
@@ -158,4 +159,51 @@ function drawGrid(canvas) {
         c.lineTo(500, y);
         c.stroke();
     }
+}
+
+function drawCzechFlag(canvas) {
+    const c = canvas.getContext('2d');
+//blue triangle part
+    c.fillStyle = "blue";
+
+    c.beginPath();
+    c.moveTo(0, 0);
+    c.lineTo(150, 110);
+    c.stroke();
+    c.lineTo(0, 220);
+    c.stroke();
+    c.lineTo(0, 0);
+    c.stroke();
+
+    c.fill();
+
+//red rhombus part
+    c.fillStyle = "red";
+    c.strokeStyle = "white";
+    c.beginPath();
+    c.moveTo(150, 110);
+    c.lineTo(320, 110);
+    c.stroke();
+    c.lineTo(320, 220);
+    c.stroke();
+    c.lineTo(0, 220);
+    c.stroke();
+    c.lineTo(150, 110);
+
+    c.fill();
+
+//white rhombus part
+       c.fillStyle = "white";
+
+    c.beginPath();
+    c.moveTo(0, 0);
+    c.lineTo(320, 0);
+    c.stroke();
+    c.lineTo(320, 110);
+    c.stroke();
+    c.lineTo(150, 110);
+    c.stroke();
+    c.lineTo(0, 0);
+
+    c.fill();
 }
