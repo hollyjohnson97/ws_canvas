@@ -161,6 +161,7 @@ function drawGrid(canvas) {
     }
 }
 
+//draws the czech flag
 function drawCzechFlag(canvas) {
     const c = canvas.getContext('2d');
 //blue triangle part
@@ -207,3 +208,4 @@ function drawCzechFlag(canvas) {
 
     c.fill();
 }
+
