@@ -303,6 +303,4 @@ function drawSmiley(canvas) {
         return x * Math.PI / 180;
     }
 
-//200 x 200
-//300 x 200
-//100 x 200
+    
