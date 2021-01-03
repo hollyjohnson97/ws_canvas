@@ -280,10 +280,10 @@ function drawSmiley(canvas) {
     let xMiddle = canvas.width / 2;
     let yMiddle = canvas.height / 2;
 
-      // decrease the smile size here
-        const smileSize = 70; // size of smile in degrees of angle; 360 would be a full circle
-        const startAngle = rad(90 - smileSize);
-        const endAngle = rad(90 + smileSize);
+    // decrease the smile size here
+    const smileSize = 70; // size of smile in degrees of angle; 360 would be a full circle
+    const startAngle = rad(90 - smileSize);
+    const endAngle = rad(90 + smileSize);
 
 
     circle(c, xMiddle, yMiddle, radius, "#FEFF31");
@@ -291,16 +291,88 @@ function drawSmiley(canvas) {
     arc(c, xMiddle, yMiddle + 20, 20, startAngle, endAngle);
 }
 
-  function arc(c, x, y, r, angleStart, angleEnd) {
-        c.beginPath();
-        c.arc(x, y, r, angleStart, angleEnd, false);
-        c.stroke();
-    }
+function arc(c, x, y, r, angleStart, angleEnd) {
+    c.beginPath();
+    c.arc(x, y, r, angleStart, angleEnd, false);
+    c.stroke();
+}
+
+// convert from degrees to radians
+function rad(x) {
+    return x * Math.PI / 180;
+}
+
+function drawEmoji(canvas) {
+    const c = canvas.getContext('2d');
+
+    c.fillStyle = "#FFFFFF";
+//top of neck
+    c.beginPath();
+    c.moveTo(20, 130);
+    c.lineTo(100, 100);
+    c.stroke();
+//to ear tip
+    c.lineTo(110, 80);
+    c.stroke();
+//front of ear
+    c.lineTo(120, 100);
+    c.stroke();
+
+    c.lineTo(150, 140);
+    c.stroke();
+
+    c.lineTo(140, 150);
+    c.stroke();
+
+    c.lineTo(130, 150);
+    c.stroke();
+
+    c.lineTo(100, 130);
+    c.stroke();
+
+    //bottom neck
+    c.lineTo(60, 150);
+    c.stroke();
+
+    c.lineTo(20, 130);
+    c.stroke();
+
+    c.fill();
+
+    //mane
+    c.fillStyle = "#FFC0CB";
+    c.beginPath();
+    c.moveTo(20, 130);
+    c.lineTo(22, 135);
+    c.stroke();
+
+    c.lineTo(100, 110);
+    c.stroke();
+
+    c.lineTo(100, 100);
+    c.stroke();
+
+    c.lineTo(20, 130);
+    c.stroke();
+
+    c.fill();
+
+    //horn
+    c.fillStyle = "#FFC0CB";
+    c.beginPath();
+    c.moveTo(122, 105);
+    c.lineTo(135, 90);
+    c.stroke();
+
+    c.lineTo(133, 112);
+    c.stroke();
+
+    c.fill();
+
+    //eye
+    c.beginPath();
+    circle(c, 115, 110, 3, "#000000");
+}
 
 
-    // convert from degrees to radians
-    function rad(x) {
-        return x * Math.PI / 180;
-    }
-
-    
+//200 x 200
