@@ -226,14 +226,31 @@ function drawSpartacus(canvas) {
 //draw a pair of eyes
 function drawEyes(canvas) {
     const c = canvas.getContext('2d');
-    circle(c, 100, 100, 50, "#fff");
-    circle(c, 200, 100, 50, "#fff");
+    let radius;
 
-    circle(c, 100, 100, 25, "#619EFF");
-    circle(c, 100, 100, 15, "#000000");
+    let width = canvas.width;
+    let height = canvas.height;
 
-    circle(c, 200, 100, 25, "#619EFF");
-    circle(c, 200, 100, 15, "#000000");
+    if (width < height) {
+        radius = width / 8;
+    } else {
+        radius = height / 8;
+    }
+
+    let leftX = width / 3;
+    let leftY = height / 3;
+
+    let rightX = (width / 3) * 2;
+    let rightY = height / 3;
+
+    circle(c, leftX, leftY, radius, "#fff");
+    circle(c, rightX, rightY, radius, "#fff");
+
+    circle(c, leftX, leftY, radius / 2, "#619EFF");
+    circle(c, leftX, leftY, radius / 4, "#000000");
+
+    circle(c, rightX, rightY, radius / 2, "#619EFF");
+    circle(c, rightX, rightY, radius / 4, "#000000");
 
 }
 
@@ -246,3 +263,46 @@ function circle(c, x, y, r, color) {
     c.fill()
     c.stroke()
 }
+
+function drawSmiley(canvas) {
+    const c = canvas.getContext('2d');
+    let radius;
+
+    let halfWidth = canvas.width / 2;
+    let halfHeight = canvas.height / 2;
+
+    if (halfWidth < halfHeight) {
+        radius = halfWidth;
+    } else {
+        radius = halfHeight;
+    }
+
+    let xMiddle = canvas.width / 2;
+    let yMiddle = canvas.height / 2;
+
+      // decrease the smile size here
+        const smileSize = 70; // size of smile in degrees of angle; 360 would be a full circle
+        const startAngle = rad(90 - smileSize);
+        const endAngle = rad(90 + smileSize);
+
+
+    circle(c, xMiddle, yMiddle, radius, "#FEFF31");
+    drawEyes(canvas);
+    arc(c, xMiddle, yMiddle + 20, 20, startAngle, endAngle);
+}
+
+  function arc(c, x, y, r, angleStart, angleEnd) {
+        c.beginPath();
+        c.arc(x, y, r, angleStart, angleEnd, false);
+        c.stroke();
+    }
+
+
+    // convert from degrees to radians
+    function rad(x) {
+        return x * Math.PI / 180;
+    }
+
+//200 x 200
+//300 x 200
+//100 x 200
