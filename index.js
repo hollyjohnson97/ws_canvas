@@ -373,6 +373,3 @@ function drawEmoji(canvas) {
     c.beginPath();
     circle(c, 115, 110, 3, "#000000");
 }
-
-
-//200 x 200
