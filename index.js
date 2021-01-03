@@ -38,6 +38,8 @@ function drawStickFigure(el, x, y, facing) {
     circle(c, x, y - 100, 20)       // head
     drawFace(c, x, y - 100, facing) // face
 
+    //sword
+    drawSword(c, 120, 110, 170, 60, 130, 90, 140, 100);
 
     // helpful functions start here
     function drawLimbs(c, x, y) {
@@ -95,6 +97,12 @@ function drawStickFigure(el, x, y, facing) {
         c.beginPath();
         c.arc(x, y, r, angleStart, angleEnd, false)
         c.stroke();
+    }
+
+    //draw sword
+    function drawSword(c, x1, y1, x2, y2, x3, y3, x4, y4) {
+        line(c, x1, y1, x2, y2);
+        line(c, x3, y3, x4, y4);
     }
 
     // convert from degrees to radians
@@ -209,3 +217,9 @@ function drawCzechFlag(canvas) {
     c.fill();
 }
 
+//draw spartacus - make the stick figure from above run around
+function drawSpartacus(canvas) {
+    const c = canvas.getContext('2d');
+    drawStickFigure(canvas);
+
+}
