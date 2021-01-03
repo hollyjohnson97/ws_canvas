@@ -202,7 +202,7 @@ function drawCzechFlag(canvas) {
     c.fill();
 
 //white rhombus part
-       c.fillStyle = "white";
+    c.fillStyle = "white";
 
     c.beginPath();
     c.moveTo(0, 0);
@@ -217,9 +217,32 @@ function drawCzechFlag(canvas) {
     c.fill();
 }
 
-//draw spartacus - draw the stick figure from above and make him carry sword. 
+//draw spartacus - draw the stick figure from above and make him carry sword.
 function drawSpartacus(canvas) {
     const c = canvas.getContext('2d');
     drawStickFigure(canvas);
+}
 
+//draw a pair of eyes
+function drawEyes(canvas) {
+    const c = canvas.getContext('2d');
+    circle(c, 100, 100, 50, "#fff");
+    circle(c, 200, 100, 50, "#fff");
+
+    circle(c, 100, 100, 25, "#619EFF");
+    circle(c, 100, 100, 15, "#000000");
+
+    circle(c, 200, 100, 25, "#619EFF");
+    circle(c, 200, 100, 15, "#000000");
+
+}
+
+// draw a circle on canvas context `c`, centered on x,y, with radius r
+// also fill the circle with white (so it's not transparent)
+function circle(c, x, y, r, color) {
+    c.beginPath()
+    c.fillStyle = color;
+    c.arc(x, y, r, 0, 6.3, false); // 6.3 is bigger than 2π so the arc will be a whole circle
+    c.fill()
+    c.stroke()
 }
