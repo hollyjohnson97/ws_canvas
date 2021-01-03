@@ -217,7 +217,7 @@ function drawCzechFlag(canvas) {
     c.fill();
 }
 
-//draw spartacus - make the stick figure from above run around
+//draw spartacus - draw the stick figure from above and make him carry sword. 
 function drawSpartacus(canvas) {
     const c = canvas.getContext('2d');
     drawStickFigure(canvas);
